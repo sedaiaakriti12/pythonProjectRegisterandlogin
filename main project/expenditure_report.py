@@ -10,7 +10,7 @@ import sqlite3
 def main_screen():
     gui = Tk()
     gui.title('Expense and Income Manager')
-    gui.geometry('700x570')
+    gui.geometry('700x''600')
     gui.resizable(0, 0)
 
     # styling tab's text
@@ -32,21 +32,21 @@ def main_screen():
     tab.add(frame2, text=" Search / Edit / Delete ")
 
     # frames in frame 1
-    f1 = Frame(frame1, width=800, height=200, bg="ivory3")
+    f1 = Frame(frame1, width=800, height=200, bg="#12AD2B")
     f1.pack(fill="both", expand=1)
-    f2 = Frame(frame1, width=800, height=200, bg="ivory3")
+    f2 = Frame(frame1, width=800, height=200, bg="#12AD2B")
     f2.pack(fill="both", expand=1)
 
     # frames in frame 2
-    f3 = Frame(frame2, width=800, height=200, bg="light grey")
+    f3 = Frame(frame2, width=800, height=200, bg="#12AD2B")
     f3.pack(fill="both", expand=1)
-    f4 = Frame(frame2, width=800, height=200, bg="light grey")
+    f4 = Frame(frame2, width=800, height=200, bg="#12AD2B")
     f4.pack(fill="both", expand=1)
 
     # frames inside f4
-    f4_1 = Frame(f4, width=800, height=200, bg="light grey")
+    f4_1 = Frame(f4, width=800, height=200, bg="#12AD2B")
     f4_1.grid(row=0, column=0)
-    f4_2 = Frame(f4, width=800, height=200, bg="light grey")
+    f4_2 = Frame(f4, width=800, height=200, bg="#12AD2B")
     f4_2.grid(row=1, column=0)
 
     # ---------- variables -----------
@@ -79,10 +79,10 @@ def main_screen():
             new_Window.geometry("690x540")
 
             # frame for the new opened window
-            frame_new = Frame(new_Window, bg="light grey")
+            frame_new = Frame(new_Window, bg="white")
             frame_new.pack(fill="both", expand=1, padx=10, pady=10)
 
-            # ctreate a tree view in the new opened window
+            # create a tree view in the new opened window
             tree_view_new = ttk.Treeview(frame_new, columns=(1, 2, 3), show="headings", height="20")
             tree_view_new.grid(row=0, column=0, padx=30, pady=10, sticky='w')
 
@@ -149,21 +149,21 @@ def main_screen():
             e_expense.delete(0, END)  # to clear the expense entry box
 
         # -----row 0, date entry-----
-        l_date = ttk.Label(f1, text='DATE : ', font=(None, 13, 'bold'), background="ivory3")
+        l_date = ttk.Label(f1, text='DATE : ', font=(None, 13, 'bold'), background="white")
         l_date.grid(row=0, column=0, padx=20, pady=20, sticky='w')
 
         e_date = DateEntry(f1, width=10, font=(None, 13, 'bold'), textvariable=date)
         e_date.grid(row=0, column=1, padx=50, pady=20, sticky='w')
 
         # -----row 1, title entry-----
-        l_title = ttk.Label(f1, text='TITLE : ', font=('arial', 13, 'bold'), background="ivory3")
+        l_title = ttk.Label(f1, text='TITLE : ', font=('arial', 13, 'bold'), background="white")
         l_title.grid(row=1, column=0, padx=20, pady=5, sticky='w')
 
         e_title = ttk.Entry(f1, width=20, font=('arial', 13, 'bold'), textvariable=title,)
         e_title.grid(row=1, column=1, padx=50, pady=5, sticky='w')
 
         # -----row 2, expense entry-----
-        l_expense = ttk.Label(f1, text='EXPENSE : ', font=(None, 13, 'bold'), background="ivory3")
+        l_expense = ttk.Label(f1, text='EXPENSE : ', font=(None, 13, 'bold'), background="white")
         l_expense.grid(row=2, column=0, padx=20, pady=25, sticky='w')
 
         e_expense = ttk.Entry(f1, width=20, font=(None, 13, 'bold'), textvariable=expense)
@@ -314,7 +314,7 @@ def main_screen():
                 edit_e_title.grid(row=1, column=1, padx=15, pady=5, sticky='w')
 
                 edit_l_expense = ttk.Label(edit_frame, text='EXPENSE : ', font=(None, 13, 'bold'),
-                                           background="light grey")
+                                           background="white")
                 edit_l_expense.grid(row=0, column=2, padx=15, pady=5, sticky='w')
 
                 edit_e_expense = ttk.Entry(edit_frame, width=20, font=(None, 13, 'bold'), textvariable=edited_expense)
@@ -328,7 +328,7 @@ def main_screen():
 
         # -------------------------- row 0 (search) --------------------------------
         # label for search
-        l_search = ttk.Label(f3, text="Search by ", font=(None, 13, 'bold'), background="light grey")
+        l_search = ttk.Label(f3, text="Search by ", font=(None, 13, 'bold'), background="white")
         l_search.grid(row=0, column=0, padx=30, pady=20, sticky='w')
 
         # create menulist
@@ -343,16 +343,16 @@ def main_screen():
         e_search.grid(row=0, column=2, padx=30, pady=50, sticky='w')
 
         # button for search
-        button_search = Button(f3, text='SEARCH', font=(None, 13, 'bold'), border=4, command=search)
+        button_search = Button(f3, text='SEARCH', font=(None, 13, 'bold'), border=4,bg='white', command=search)
         button_search.grid(row=0, column=3, padx=15, pady=30)
 
         # ------------------- row 1 (delete/update/clearscreen buttons) ---------------
         # button to delete
-        button_delete = Button(f4_2, text=' DELETE RECORD ', font=(None, 13, 'bold'), border=4, command=delete_record)
+        button_delete = Button(f4_2, text=' DELETE RECORD ', font=(None, 13, 'bold'), border=4,bg='white', command=delete_record)
         button_delete.grid(row=0, column=0, padx=10, pady=10)
 
         # button to update
-        button_edit = Button(f4_2, text=' EDIT RECORD ', font=(None, 13, 'bold'), border=4, command=edit_record)
+        button_edit = Button(f4_2, text=' EDIT RECORD ', font=(None, 13, 'bold'), border=4,bg='white', command=edit_record)
         button_edit.grid(row=0, column=1, padx=10, pady=20)
 
         # ---------------------- f4 (tree view) --------------------------
@@ -368,11 +368,11 @@ def main_screen():
         scrollbar.grid(row=0, column=0, sticky=S + E + N)
 
         # exit button
-        button_exit = Button(f4_2, text=' EXIT ', font=(None, 13, 'bold'), border=4, command=exit)
+        button_exit = Button(f4_2, text=' EXIT ', font=(None, 13, 'bold'), border=4,bg='white', command=exit)
         button_exit.grid(row=0, column=2, padx=100, pady=20)
 
         # button to clear the tree_view1
-        button_clear_tv = Button(f3, text=' CLEAR SCREEN ', font=(None, 13, 'bold'), border=4,fg='white', command=clear_screen)
+        button_clear_tv = Button(f3, text=' CLEAR SCREEN ', font=(None, 13, 'bold'), border=4,fg='white',bg='white', command=clear_screen)
         button_clear_tv.grid(row=1, column=2, padx=15, pady=10)
 
     main_window1_tab1()
